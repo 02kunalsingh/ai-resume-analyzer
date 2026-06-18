@@ -1,8 +1,4 @@
 
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/bf41640d-9952-450a-b9b6-3162d9e30497
-
 ## Run Locally
 
 **Prerequisites:**  Node.js
@@ -16,4 +12,3 @@ View your app in AI Studio: https://ai.studio/apps/bf41640d-9952-450a-b9b6-3162d
 =======
 # ai-resume-analyzer
 AI resume analyzer is an intelligent, full-stack ATS alignment engine powered by Gemini AI. It instantly compares resumes with job descriptions to compute compatibility scores, highlight index gaps, extract missing keywords, and provide actionable suggestions to optimize resumes for modern recruiter screening systems in seconds.
- a4c8b7a157656c46daa73e9bc93dfd631743c9e5
