@@ -1,0 +1,6 @@
+{
+  "name": "AI Resume Analyzer",
+  "description": "An AI-powered tool to parse resumes, compare with job descriptions, calculate match score, extract keywords, and suggest improvements.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Sophisticated Dark Mode Theme Override Layer */
+.dark {
+  color-scheme: dark;
+  
+  /* Apply dark colors to core elements and layouts */
+  --bg-main: #0b0f19; /* premium slate dark body */
+  --bg-card: #111827; /* slate-900 surfaces */
+  --bg-input: #1f2937; /* slate-800 fields */
+  --border-muted: #1e293b; /* slate-800 borders */
+  --border-subtle: #334155; /* slate-700 borders */
+  --text-primary: #f8fafc; /* text-slate-50 */
+  --text-secondary: #cbd5e1; /* text-slate-300 */
+  --text-muted: #94a3b8; /* text-slate-450 */
+}
+
+/* When dark mode is active, override colors with high precision */
+.dark body,
+.dark .bg-slate-50 {
+  background-color: var(--bg-main) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+.dark .border-slate-50,
+.dark .border-slate-100 {
+  border-color: var(--border-muted) !important;
+}
+
+.dark .border-slate-200 {
+  border-color: var(--border-subtle) !important;
+}
+
+.dark .text-slate-900,
+.dark .text-slate-950,
+.dark .text-slate-905,
+.dark .text-slate-800,
+.dark .text-indigo-950 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-slate-700,
+.dark .text-slate-755,
+.dark .text-indigo-900 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500,
+.dark .text-slate-510,
+.dark .text-slate-405,
+.dark .text-slate-400 {
+  color: var(--text-muted) !important;
+}
+
+/* Form input, textarea, and select controls inside dark mode */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: var(--bg-input) !important;
+  border-color: var(--border-muted) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 0.7;
+}
+
+.dark select option {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Fix tabs & pills active background and styles inside dashboard */
+.dark .bg-slate-50\/50 {
+  background-color: #1e293b !important;
+}
+
+.dark button.bg-white {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Beautiful color adjustments to make alerts / metrics pop but stay warm */
+.dark .bg-emerald-50\/20 {
+  background-color: rgba(16, 185, 129, 0.06) !important;
+}
+.dark .border-emerald-100\/50, .dark .border-emerald-100 {
+  border-color: rgba(16, 185, 129, 0.2) !important;
+}
+.dark .text-emerald-800, .dark .text-emerald-950 {
+  color: #a7f3d0 !important;
+}
+.dark .text-emerald-800\/80 {
+  color: #34d399 !important;
+}
+
+.dark .bg-amber-50\/20 {
+  background-color: rgba(245, 158, 11, 0.06) !important;
+}
+.dark .border-amber-100\/50, .dark .border-amber-100 {
+  border-color: rgba(245, 158, 11, 0.2) !important;
+}
+.dark .text-amber-805, .dark .text-amber-955 {
+  color: #fde68a !important;
+}
+.dark .text-amber-808\/80, .dark .text-amber-800\/80 {
+  color: #fbbf24 !important;
+}
+
+/* Red / Alerts banner overrides */
+.dark .bg-rose-50, .dark .bg-red-50 {
+  background-color: rgba(244, 63, 94, 0.1) !important;
+}
+.dark .border-rose-100, .dark .border-rose-200, .dark .border-red-200 {
+  border-color: rgba(244, 63, 94, 0.25) !important;
+}
+.dark .text-rose-950, .dark .text-rose-900, .dark .text-rose-955, .dark .text-red-800 {
+  color: #fecdd3 !important;
+}
+
+.dark .bg-indigo-50\/20 {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+}
+.dark .border-indigo-100\/30, .dark .border-indigo-100 {
+  border-color: rgba(99, 102, 241, 0.2) !important;
+}
+.dark .text-indigo-950, .dark .text-indigo-800 {
+  color: #e0e7ff !important;
+}
+.dark .bg-indigo-50 {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+/* Recharts labels color correction */
+.dark .recharts-default-tooltip {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+.dark .recharts-tooltip-item-list {
+  color: #f3f4f6 !important;
+}
+
+/* Professional Print Stylesheet & PDF Export Enhancements */
+@media print {
+  html, body {
+    background-color: #ffffff !important;
+    color: #0f172a !important; /* deep slate/black text */
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Force light theme colors on print regardless of dark mode state */
+  .dark, .dark body, .dark .bg-slate-50, .dark .bg-slate-900, .dark .bg-slate-950 {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  /* Core elements should fill full page width during print */
+  main {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Cards should be flat and clean without outer borders, outlines, or heavy shadow depth */
+  .bg-white, .dark .bg-white, .dark .bg-slate-900 {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Specific color-coding retention */
+  .text-emerald-600, .dark .text-emerald-400 {
+    color: #047857 !important; /* emerald-700 */
+  }
+  .text-rose-600, .dark .text-rose-450, .dark .text-rose-400 {
+    color: #be123c !important; /* rose-700 */
+  }
+  .bg-slate-50, .bg-slate-100, .dark .bg-slate-800 {
+    background-color: #f8fafc !important; /* slate-50 */
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Tab Panel Body container style for printed media mapping */
+  .border, .border-slate-100, .border-slate-200, .dark .border-slate-800 {
+    border-color: #cbd5e1 !important; /* slate-300 */
+  }
+
+  /* Break page cleanly before major sections start to look polished on pages */
+  .print\:break-before-page {
+    break-before: page !important;
+    page-break-before: always !important;
+    padding-top: 2rem !important;
+    border-top: 1px calc(solid) #e2e8f0 !important;
+  }
+}
+
